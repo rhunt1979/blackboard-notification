@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Notification</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+      }
+      .message {
+        font-size: 4em;
+        text-align: center;
+        color: #333;
+      }
+    </style>
+    <script>
+      // Function to trigger Apps Script email notification
+      function sendNotification() {
+        fetch('https://script.google.com/macros/s/AKfycby2hmrLz53-WiqDAbhfgQjsKA7yK1p75VSvuytIJ2UKLoF1kV4LY4pmNFlh76z8CSBFXA/exec')
+          .then(response => response.text())
+          .then(data => console.log('Notification Sent:', data))
+          .catch(error => console.error('Error:', error));
+      }
+
+      // Automatically send notification when the page loads
+      window.onload = sendNotification;
+    </script>
+  </head>
+  <body>
+    <div class="message">
+      Notification sent successfully!<br>
+      You may close this tab and submit your Blackboard Assignment.
+    </div>
+  </body>
+</html>
